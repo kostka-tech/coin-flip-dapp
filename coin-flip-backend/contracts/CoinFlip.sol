@@ -41,6 +41,7 @@ contract CoinFlip is Ownable, usingProvable {
     }
 
     function __callback(bytes32 _queryId, string memory _result, bytes memory _proof) public {
+        // comment this out when using testGetRandom
         require(msg.sender == provable_cbAddress());
 
         uint256 coinFlipResult = uint256(keccak256(abi.encodePacked(_result))) % 2;
